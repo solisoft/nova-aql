@@ -1,8 +1,9 @@
 {
-    "identifier": "org.AQL",
+    "identifier": "solisoft.aql",
     "name": "AQL",
     "organization": "solisoft",
     "description": "AQL language for ArangoDB",
     "version": "1.0",
-    "categories": ["languages"]
+    "categories": ["languages"],
+    "bugs": "https://github.com/solisoft/nova-aql/issues"
 }

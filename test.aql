@@ -1,4 +1,2 @@
-FOR c IN customers
-  LET upload = (FOR u IN uploads FILTER c._key == u.object_key RETURN u)
-  FILTER TO_NUMBER(c.test == TRUE)
-  RETURN { c, success: FALSE } 
+FOR c IN Characters
+UPDATE c WITH { season: 1 } IN Characters
