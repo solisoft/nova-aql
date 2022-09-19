@@ -1,0 +1,8 @@
+{
+    "identifier": "org.AQL",
+    "name": "AQL",
+    "organization": "solisoft",
+    "description": "AQL language for ArangoDB",
+    "version": "1.0",
+    "categories": ["languages"]
+}

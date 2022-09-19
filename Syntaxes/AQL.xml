@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="aql">
+    <meta>
+        <name>AQL</name>
+        <type>structured</type>
+        <preferred-file-extension>aql</preferred-file-extension>
+    </meta>
+    
+    <detectors>
+        <extension priority="1.0">aql</extension>
+    </detectors>
+    
+    <indentation>
+        <increase>
+            <expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
+        </increase>
+        <decrease>
+            <expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
+        </decrease>
+    </indentation>
+    
+    <comments>
+        <single>
+            <expression>//</expression>
+        </single>
+    </comments>
+    
+    <brackets>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+    </brackets>
+    
+    <scopes>
+        <include syntax="self" collection="keywords" />
+        <include syntax="self" collection="strings" />
+        <include syntax="self" collection="values" />
+        <include syntax="self" collection="booleans" />
+        <include syntax="self" collection="brackets" />
+    </scopes>
+    
+    <surrounding-pairs>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&apos;" close="&apos;" />
+        <pair open="&quot;" close="&quot;" />
+        <pair open="`" close="`" />
+    </surrounding-pairs>
+    
+    
+    <collections>
+        <collection name="brackets">
+            <scope name="aql.bracket">
+                <expression>(\[ | \] | \{ | \} | \( | \))</expression>
+            </scope>
+        </collection>
+        
+        <collection name="keywords">
+            <scope name="aql.keyword">
+                <strings>
+                    <string>FOR</string>
+                    <string>RETURN</string>
+                    <string>FILTER</string>
+                    <string>IN</string>
+                    <string>SEARCH</string>
+                    <string>SORT</string>
+                    <string>LET</string>
+                    <string>LIMIT</string>
+                    <string>COLLECT</string>
+                    <string>WINDOW</string>
+                    <string>REMOVE</string>
+                    <string>UPDATE</string>
+                    <string>REPLACE</string>
+                    <string>INSERT</string>
+                    <string>UPSERT</string>
+                    <string>WITH</string>
+                    <string>OUTBOUND</string>
+                    <string>INBOUND</string>
+                    <string>ANY</string>
+                </strings>
+            </scope>
+        </collection>
+        
+        <collection name="booleans">
+            <scope name="aql.value.string">
+                <strings>
+                    <string>TRUE</string>
+                    <string>FALSE</string>
+                    <string>NULL</string>
+                </strings>
+            </scope>
+        </collection>
+        
+        <collection name="values">
+            <scope name="aql.value.number">
+                <strings>
+                    <string>ANALYZER</string>
+                    <string>BOOST</string>
+                    <string>EXISTS</string>
+                    <string>IN_RANGE</string>
+                    <string>MIN_MATCH</string>
+                    <string>NGRAM_MATCH</string>
+                    <string>PHRASE</string>
+                    <string>STARTS_WITH</string>
+                    <string>LEVENSHTEIN_MATCH</string>
+                    <string>LIKE</string>
+                    <string>GEO_CONTAINS</string>
+                    <string>GEO_DISTANCE</string>
+                    <string>GEO_IN_RANGE</string>
+                    <string>GEO_INTERSECTS</string>
+                    <string>BM25</string>
+                    <string>TFIDF</string>
+                    
+                    <string>APPEND</string>
+                    <string>CONTAINS_ARRAY</string>
+                    <string>COUNT</string>
+                    <string>COUNT_DISTINCT</string>
+                    <string>COUNT_UNIQUE</string>
+                    <string>FIRST</string>
+                    <string>FLATTEN</string>
+                    <string>INTERLEAVE</string>
+                    <string>INTERSECTION</string>
+                    <string>JACCARD</string>
+                    <string>LAST</string>
+                    <string>LENGTH</string>
+                    <string>MINUS</string>
+                    <string>NTH</string>
+                    <string>OUTERSECTION</string>
+                    <string>POP</string>
+                    <string>POSITION</string>
+                    <string>PUSH</string>
+                    <string>REMOVE_NTH</string>
+                    <string>REPLACE_NTH</string>
+                    <string>REMOVE_VALUE</string>
+                    <string>REMOVE_VALUES</string>
+                    <string>REVERSE</string>
+                    <string>SHIFT</string>
+                    <string>SLICE</string>
+                    <string>SORTED</string>
+                    <string>SORTED_UNIQUE</string>
+                    <string>UNION</string>
+                    <string>UNION_DISTINCT</string>
+                    <string>UNIQUE</string>
+                    <string>UNSHIFT</string>
+                    
+                    <string>BIT_AND</string>
+                    <string>BIT_CONSTRUCT</string>
+                    <string>BIT_DECONSTRUCT</string>
+                    <string>BIT_FROM_STRING</string>
+                    <string>BIT_NEGATE</string>
+                    <string>BIT_OR</string>
+                    <string>BIT_POPCOUNT</string>
+                    <string>BIT_SHIFT_LEFT</string>
+                    <string>BIT_SHIFT_RIGHT</string>
+                    <string>BIT_TEST</string>
+                    <string>BIT_TO_STRING</string>
+                    <string>BIT_XOR</string>
+                    
+                    <string>DATE_NOW</string>
+                    <string>DATE_ISO8601</string>
+                    <string>DATE_TIMESTAMP</string>
+                    <string>IS_DATESTRING</string>
+                    <string>DATE_DAYOFWEEK</string>
+                    <string>DATE_YEAR</string>
+                    <string>DATE_MONTH</string>
+                    <string>DATE_DAY</string>
+                    <string>DATE_HOUR</string>
+                    <string>DATE_MINUTE</string>
+                    <string>DATE_SECOND</string>
+                    <string>DATE_MILLISECOND</string>
+                    <string>DATE_DAYOFYEAR</string>
+                    <string>DATE_ISOWEEK</string>
+                    <string>DATE_LEAPYEAR</string>
+                    <string>DATE_QUARTER</string>
+                    <string>DATE_DAYS_IN_MONTH</string>
+                    <string>DATE_TRUNC</string>
+                    <string>DATE_ROUND</string>
+                    <string>DATE_FORMAT</string>
+                    <string>DATE_ADD</string>
+                    <string>DATE_SUBTRACT</string>
+                    <string>DATE_DIFF</string>
+                    <string>DATE_COMPARE</string>
+                    <string>DATE_UTCTOLOCAL</string>
+                    <string>DATE_LOCALTOUTC</string>
+                    <string>DATE_TIMEZONE</string>
+                    <string>DATE_TIMEZONES</string>
+                    
+                    <string>ATTRIBUTES</string>
+                    <string>COUNT</string>
+                    <string>HAS</string>
+                    <string>IS_SAME_COLLECTION</string>
+                    <string>KEEP</string>
+                    <string>LENGTH</string>
+                    <string>MATCHES</string>
+                    <string>MERGE</string>
+                    <string>MERGE_RECURSIVE</string>
+                    <string>PARSE_IDENTIFIER</string>
+                    <string>TRANSLATE</string>
+                    <string>UNSET</string>
+                    <string>UNSET_RECURSIVE</string>
+                    <string>VALUES</string>
+                    <string>ZIP</string>
+                    
+                    <string>FULLTEXT</string>
+                    
+                    <string>DISTANCE</string>
+                    <string>GEO_CONTAINS</string>
+                    <string>GEO_DISTANCE</string>
+                    <string>GEO_AREA</string>
+                    <string>GEO_EQUALS</string>
+                    <string>GEO_INTERSECTS</string>
+                    <string>GEO_IN_RANGE</string>
+                    <string>IS_IN_POLYGON</string>
+                    <string>GEO_LINESTRING</string>
+                    <string>GEO_MULTILINESTRING</string>
+                    <string>GEO_MULTIPOINT</string>
+                    <string>GEO_POINT</string>
+                    <string>GEO_POLYGON</string>
+                    <string>GEO_MULTIPOLYGON</string>
+                    <string>NEAR</string>
+                    <string>WITHIN</string>
+                    <string>WITHIN_RECTANGLE</string>
+                    
+                    <string>FIRST_DOCUMENT</string>
+                    <string>FIRST_LIST</string>
+                    <string>MIN_MATCH</string>
+                    <string>NOT_NULL</string>
+                    <string>CHECK_DOCUMENT</string>
+                    <string>COLLECTION_COUNT</string>
+                    <string>COLLECTIONS</string>
+                    <string>COUNT</string>
+                    <string>CURRENT_DATABASE</string>
+                    <string>CURRENT_USER</string>
+                    <string>DECODE_REV</string>
+                    <string>DOCUMENT</string>
+                    <string>LENGTH</string>
+                    <string>SHARD_ID</string>
+                    <string>HASH</string>
+                    <string>APPLY</string>
+                    <string>CALL</string>
+                    <string>Other functio</string>
+                    <string>ASSERT() / WARN</string>
+                    <string>IN_RANGE</string>
+                    <string>PREGEL_RESULT</string>
+                    <string>FAIL</string>
+                    <string>NOOPT</string>
+                    <string>NOEVAL</string>
+                    <string>PASSTHRU</string>
+                    <string>SCHEMA_GET</string>
+                    <string>SCHEMA_VALIDATE</string>
+                    <string>SLEEP</string>
+                    <string>V8</string>
+                    <string>VERSION</string>
+                    
+                    <string>ABS</string>
+                    <string>ACOS</string>
+                    <string>ASIN</string>
+                    <string>ATAN</string>
+                    <string>ATAN2</string>
+                    <string>AVERAGE</string>
+                    <string>AVG</string>
+                    <string>CEIL</string>
+                    <string>COS</string>
+                    <string>COSINE_SIMILARITY</string>
+                    <string>DECAY_GAUSS</string>
+                    <string>DECAY_EXP</string>
+                    <string>DECAY_LINEAR</string>
+                    <string>DEGREES</string>
+                    <string>EXP</string>
+                    <string>EXP2</string>
+                    <string>FLOOR</string>
+                    <string>LOG</string>
+                    <string>LOG2</string>
+                    <string>LOG10</string>
+                    <string>L1_DISTANCE</string>
+                    <string>L2_DISTANCE</string>
+                    <string>MAX</string>
+                    <string>MEDIAN</string>
+                    <string>MIN</string>
+                    <string>PERCENTILE</string>
+                    <string>PI</string>
+                    <string>POW</string>
+                    <string>PRODUCT</string>
+                    <string>RADIANS</string>
+                    <string>RAND</string>
+                    <string>RANGE</string>
+                    <string>ROUND</string>
+                    <string>SIN</string>
+                    <string>SQRT</string>
+                    <string>STDDEV_POPULATION</string>
+                    <string>STDDEV_SAMPLE</string>
+                    <string>STDDEV</string>
+                    <string>SUM</string>
+                    <string>TAN</string>
+                    <string>VARIANCE_POPULATION</string>
+                    <string>VARIANCE_SAMPLE</string>
+                    <string>VARIANCE</string>
+                    
+                    <string>CHAR_LENGTH</string>
+                    <string>CONCAT</string>
+                    <string>CONCAT_SEPARATOR</string>
+                    <string>CONTAINS</string>
+                    <string>COUNT</string>
+                    <string>CRC32</string>
+                    <string>ENCODE_URI_COMPONENT</string>
+                    <string>FIND_FIRST</string>
+                    <string>FIND_LAST</string>
+                    <string>FNV64</string>
+                    <string>IPV4_FROM_NUMBER</string>
+                    <string>IPV4_TO_NUMBER</string>
+                    <string>IS_IPV4</string>
+                    <string>JSON_PARSE</string>
+                    <string>JSON_STRINGIFY</string>
+                    <string>LEFT</string>
+                    <string>LENGTH</string>
+                    <string>LEVENSHTEIN_DISTANCE</string>
+                    <string>LIKE</string>
+                    <string>LOWER</string>
+                    <string>LTRIM</string>
+                    <string>MD5</string>
+                    <string>NGRAM_POSITIONAL_SIMILARITY</string>
+                    <string>NGRAM_SIMILARITY</string>
+                    <string>RANDOM_TOKEN</string>
+                    <string>REGEX_MATCHES</string>
+                    <string>REGEX_SPLIT</string>
+                    <string>REGEX_TEST</string>
+                    <string>REGEX_REPLACE</string>
+                    <string>REVERSE</string>
+                    <string>RIGHT</string>
+                    <string>RTRIM</string>
+                    <string>SHA1</string>
+                    <string>SHA512</string>
+                    <string>SOUNDEX</string>
+                    <string>SPLIT</string>
+                    <string>STARTS_WITH</string>
+                    <string>SUBSTITUTE</string>
+                    <string>SUBSTRING</string>
+                    <string>TOKENS</string>
+                    <string>TO_BASE64</string>
+                    <string>TO_HEX</string>
+                    <string>TRIM</string>
+                    <string>UPPER</string>
+                    <string>UUID</string>
+                
+                    <string>TO_BOOL</string>
+                    <string>TO_NUMBER</string>
+                    <string>TO_STRING</string>
+                    <string>TO_ARRAY</string>
+                    <string>TO_LIST</string>
+                    <string>IS_NULL</string>
+                    <string>IS_BOOL</string>
+                    <string>IS_NUMBER</string>
+                    <string>IS_STRING</string>
+                    <string>IS_ARRAY</string>
+                    <string>IS_LIST</string>
+                    <string>IS_OBJECT</string>
+                    <string>IS_DOCUMENT</string>
+                    <string>IS_DATESTRING</string>
+                    <string>IS_IPV4</string>
+                    <string>IS_KEY</string>
+                    <string>TYPENAME</string>
+                    
+                    
+                </strings>
+            </scope>
+        </collection>
+        
+        <collection name="strings">
+            <scope name="aql.string.double-quoted">
+                <starts-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="aql.string.quoted.double" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;|(?:(?&lt;!\\)$)</expression>
+                    <capture number="0" name="aql.string.quoted.double" />
+                </ends-with>
+                <subscopes>
+                    <scope name="aql.string.quoted.escape">
+                        <expression>\\(?:\\|&quot;|n|r|t|b|f)</expression>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="aql.string.single-quoted">
+                <starts-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="aql.string.quoted.single" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;|(?:(?&lt;!\\)$)</expression>
+                    <capture number="0" name="aql.string.quoted.single" />
+                </ends-with>
+                <subscopes>
+                    <scope name="aql.string.quoted.escape">
+                        <expression>\\(?:\\|&quot;|n|r|t|b|f)</expression>
+                    </scope>
+                </subscopes>
+            </scope>
+        </collection>
+    </collections>
+</syntax>
