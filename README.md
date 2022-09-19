@@ -15,7 +15,6 @@
 
 AQL include all current methods
 
-https://github.com/solisoft/nova-aql/issues
 <!--
 👋 That's it! Happy developing!
 
