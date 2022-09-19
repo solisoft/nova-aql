@@ -5,6 +5,7 @@
 
 **AQL** provides syntax highlighting and autocompletion for AQL.
 
+![](https://raw.githubusercontent.com/solisoft/nova-aql/main/screenshot.png)
 
 ## Language Support
 
@@ -14,6 +15,7 @@
 
 AQL include all current methods
 
+https://github.com/solisoft/nova-aql/issues
 <!--
 👋 That's it! Happy developing!
 
