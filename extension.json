@@ -3,7 +3,7 @@
     "name": "AQL",
     "organization": "solisoft",
     "description": "AQL language for ArangoDB",
-    "version": "1.0",
+    "version": "1.0.1",
     "categories": ["languages"],
     "bugs": "https://github.com/solisoft/nova-aql/issues"
 }
